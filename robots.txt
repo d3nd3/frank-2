@@ -1,1 +1,1 @@
-Sitemap: https://frankinteriordesign.co.uk/sitemap.xml
+# Sitemap: https://frankinteriordesign.co.uk/sitemap.xml
