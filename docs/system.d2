@@ -1,0 +1,50 @@
+# frank-2 — a static six-project portfolio, no build step, GitHub Pages serves it straight
+# Strokes only (no fills) so the light and dark themes both stay readable.
+direction: right
+
+classes: {
+  entry: {style: {stroke: "#4f9cf9"; stroke-width: 2}}
+  core: {style: {stroke: "#9a7cf9"}}
+  state: {style: {stroke: "#e0a44a"}}
+  ext: {style: {stroke: "#6ac48a"; stroke-dash: 4}}
+  store: {style: {stroke: "#e0a44a"; stroke-width: 2}}
+}
+
+entry: Entry points {
+  direction: down
+  index: "index.html · about page: nav, landing overlay, 8 prefetch links" {class: entry}
+  portfolio: "html/portfolio.html · six project cards, 44 prefetch links to pages and jpgs" {class: entry}
+  project: "html/<project>.html · six galleries, flat lists of img tags with fixed sizes" {class: entry}
+  contact: "html/contact.html · email, phone and socials as plain text, no form" {class: entry}
+}
+
+core: Core {
+  direction: down
+  fade: "index.js · the only script here: rAF plus a 1 s hold, then a 4 s crossfade" {class: core}
+  logo: "logo_has_loaded · inline handler copies a hidden img into the circle background" {class: core}
+  css: "style.css · reset, two base64 @font-face blocks, eight min-width breakpoints" {class: core}
+  bundle: "lib/all.js · imagesLoaded 4.1.3 and Masonry 4.2.0 concatenated, local init appended" {class: core}
+  grid: "masonry init · grid, sizer, gutter; a second instance is created on imagesLoaded" {class: core}
+  guard: "dead guard · if (getWidth >= 460) never calls getWidth, so that branch does nothing" {class: core}
+}
+
+state: Static assets {
+  direction: down
+  grid-columns: 2
+  images: "img/ · 760 px wide jpgs, no srcset, no lazy loading, prefetched instead" {class: store; shape: cylinder}
+  fonts: "fonts/ · gothic ttf and woff files, unused because the CSS inlines the fonts" {class: store; shape: cylinder}
+  dead: "style.min.css and inlined-fonts.css · no page references them" {class: store; shape: cylinder}
+  stale: "root thescaffoldgarden.html · stale copy, base href /frank-2/" {class: store; shape: cylinder}
+  meta: "manifest, favicons, robots, sitemap · Pages plumbing" {class: store; shape: cylinder}
+}
+
+external: External {
+  direction: down
+  pages: "GitHub Pages · d3nd3.github.io/frank-2, plain files, no server side" {class: ext}
+  social: "Instagram, Twitter/X, LinkedIn · footer links, the only outbound calls" {class: ext}
+  browser: "browser · no API, no analytics, no cookies, no contact endpoint" {class: ext}
+}
+
+entry -> core
+core -> state
+core -> external
